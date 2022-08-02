@@ -1,2 +1,2 @@
 # opcoes-municipios-vagas
-Escolha de vagas distribuídas por municípios
+Escolha de 1500 vagas restantes do mais médicos, distribuídas por municípios.
