@@ -1,6 +1,16 @@
 <?php
 session_start();
 require_once ("conexao.php");
+
+date_default_timezone_set('America/Sao_Paulo');
+//$dataHora = date('d');
+$dt = new DateTime();
+$dia = $dt->format('d');
+$horaH = $dt->format('H');
+
+if($dia == 12 && $horaH > 17){
+    header("Location: encerramento.php"); exit();
+}
 if (!isset($_SESSION['cpf'])) {
     header("Location: logout.php"); exit();
 }
@@ -74,7 +84,7 @@ if($cpf != '' || $cpf != null){
                 <img src="img/Logo_400x200.png" class="img-fluid" alt="logoAdaps" title="Logo Adaps">
             </div>
             <div class="col-12 col-md-8 col-sm-6 mt-5 ">
-                <h4 class="mb-4 font-weight-bold">Escolha de opções para novas vagas disponibilizadas</h4>
+                <h4 class="mb-4 font-weight-bold">Escolhas das opções de vagas disponíveis.</h4>
             </div>
         </div>
         <div class="row">
@@ -160,7 +170,7 @@ if($cpf != '' || $cpf != null){
                 <img src="img/Logo_400x200.png" class="img-fluid" alt="logoAdaps" title="Logo Adaps">
             </div>
             <div class="col-12 col-md-8 col-sm-6 mt-5 ">
-                <h4 class="mb-4 font-weight-bold">Escolha de opções para novas vagas disponibilizadas</h4>
+                <h4 class="mb-4 font-weight-bold">Escolhas das opções de vagas disponíveis.</h4>
             </div>
         </div>
         <div class="row">
@@ -180,7 +190,7 @@ if($cpf != '' || $cpf != null){
                         }
                     ?>
                     <form method="post" action="">
-                        <p class="text-danger">* Escolha obrigatória na 1ª opção.</p>
+                        <p class="text-danger">* Na 1ª opção a escolha é obrigatória.</p>
                         <input type="hidden" name="idmedico" value="<?= $idmedico ?>"/>
                         <input type="hidden" name="nomemedico" value="<?= $nomemedico ?>"/>
                         <input type="hidden" name="cpf" value="<?= $cpf ?>"/>
@@ -279,7 +289,7 @@ if (isset($_POST['confirmaEnvio'])) {
     date_default_timezone_set('America/Sao_Paulo');
     $datahoraregistro = date('Y/m/d H:i:s', time());
     if ($uf == "[--SELECIONE--]") {
-        $_SESSION['msg'] = '<p class="bg-warning text-center p-2 rounded">Escolha obrigatória na 1ª opção.</p>';
+        $_SESSION['msg'] = '<p class="bg-danger text-light text-center p-2 rounded font-weight-bold">Na 1ª opção a escolha é obrigatória.</p>';
 
     } else {
         $sql = "update medico set municipio1 = '$municipio1', "
@@ -308,7 +318,7 @@ if (isset($_POST['confirmaEnvio'])) {
                 . "where idmedico = '$idmedico'";
             mysqli_query($conn, $sql) or die(mysqli_error($conn));
         }
-        $_SESSION['msg'] = "<p class='bg-success text-light text-center p-2 rounded'>Dados cadastrados com sucesso!</p>";
+        $_SESSION['msg'] = "<p class='bg-success text-light text-center p-2 rounded font-weight-bold'>Dados cadastrados com sucesso!</p>";
     }
     
     echo "<META HTTP-EQUIV='REFRESH' CONTENT=\"0;

@@ -9,7 +9,7 @@ while($reg3 = mysqli_fetch_object($rs3)){
     $idmunicipio3 = $reg3->idmunicipio;
     $nomemunicipio3 = ucwords($reg3->municipio);
     $vagas3 = $reg3->vagas;
-    echo "<option value='$idmunicipio3'>$nomemunicipio3  - $vagas3 vagas.</option>";
+    echo "<option value='$idmunicipio3'>$nomemunicipio3  - $vagas3 vaga(s).</option>";
 }
 
 ?>

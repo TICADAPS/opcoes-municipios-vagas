@@ -4,7 +4,7 @@ if (!isset($_SESSION['msg'])) {
     $_SESSION['msg'] = "";
 }
 require_once ("conexao.php");
-$_SESSION['msg'] = '<p class="bg-warning text-center p-2 rounded">Dados apagados.</p>';
+$_SESSION['msg'] = '<p class="bg-secondary text-light text-center p-2 rounded font-weight-bold">Dados apagados.</p>';
 $idmedico = $_POST['idmedico'];
 
 // DEFINE O FUSO HORARIO COMO O HORARIO DE BRASILIA

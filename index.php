@@ -38,7 +38,7 @@ fullStackPHPClassName("Login de acesso");
                         <input type="text" name="userCpf" class="form-control input_user" id="txtCpf" value="" placeholder="Informe seu CPF">
                     </div>
                     <div class="input-group mb-2">
-                        <p class="text-light text-justify"><i>Entre com seu CPF para ter acesso à escolha de opções de novas vagas disponibilizadas para Bolsistas</i></p>
+                        <p class="text-light text-justify"><i>Entre com seu CPF para ter acesso à escolha de opções de novas vagas disponibilizadas para Médico Bolsista</i></p>
                     </div>
 
                     <div class="d-flex justify-content-center mt-3 login_container">
